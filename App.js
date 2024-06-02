@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { COLORS } from './style/color';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {DetailsScreen} from './Screens/Tetanus.js'
+import { DetailsScreen } from './Screens/Tetanus.js'
 import { home_Style } from './style/HomeStyle.js';
 
 const Stack = createStackNavigator();
@@ -12,7 +12,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerStyle: home_Style.header, headerTitleStyle: { color: COLORS.white, headerRight: () => <Headermenu />, } }}>
+      <Stack.Navigator screenOptions={{ headerStyle: home_Style.header, headerTitleStyle: { color: COLORS.white, headerRight: () => <Headermenu />, },headerTintColor: COLORS.white }}>
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Impfpass Hauptseite", }} />
         <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
@@ -20,11 +20,13 @@ export default function App() {
   );
 }
 const HomeScreen = ({ navigation }) => (
-  <View>
-    <Text>Home Screen</Text>
-
+  <View >
     <View style={home_Style.stack}>
+      <Text style={home_Style.stack}>Impfstatus</Text>
+    </View>
 
+
+    <View >
       <View style={home_Style.container}>
         <FlatList
           data={[
@@ -47,11 +49,11 @@ const HomeScreen = ({ navigation }) => (
               <View style={home_Style.tabStatus}>
                 <Icon name={item.aktiv} size={30} color={item.color} />
               </View>
-              <View style={home_Style.tab}>
-                <Text>{item.key}</Text>
+              <View style={home_Style.tab} >
+                <Text style={{color:COLORS.orange}}>{item.key}</Text>
               </View>
-              <View style={home_Style.tab}>
-                <Icon name='pending' size={30} color={COLORS.blue} onPress={() => navigation.navigate(item.link)} />
+              <View style={home_Style.tab} >
+                <Icon name='pending' size={30} color={COLORS.secondOrange} onPress={() => navigation.navigate(item.link)} />
               </View>
             </View>
           }
@@ -61,14 +63,5 @@ const HomeScreen = ({ navigation }) => (
   </View>
 );
 
-const Headermenu = () => {
-  return (
-    <Button
-      onPress={() => alert('This is a button!')}
-      title="Info"
-      color="#fff"
-    />
-  );
-};
 
 

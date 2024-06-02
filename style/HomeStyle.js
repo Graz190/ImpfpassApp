@@ -3,12 +3,13 @@ import { COLORS } from './color';
 
 export const home_Style = StyleSheet.create({
     header: {
-      backgroundColor: COLORS.blue,
+      backgroundColor: COLORS.orange,
     },
     tabBar: {
       flexDirection: 'row',
       borderTopColor: '#333333',
       borderTopWidth: 1,
+      borderColor: COLORS.white,
     },
     tab: {
       height: 50,
@@ -23,7 +24,12 @@ export const home_Style = StyleSheet.create({
       justifyContent: 'center',
     },
     stack: {
-  
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 20,
+        color: COLORS.white,
+        backgroundColor: COLORS.secondOrange,
     },
-    container: {}
+    container: {
+    }
   });

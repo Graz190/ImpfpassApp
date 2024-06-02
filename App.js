@@ -1,9 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
+import { Text, View, Button, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { COLORS } from './style/color';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {DetailsScreen} from './Screens/Tetanus.js'
+import { home_Style } from './style/HomeStyle.js';
 
 const Stack = createStackNavigator();
 
@@ -59,12 +61,6 @@ const HomeScreen = ({ navigation }) => (
   </View>
 );
 
-const DetailsScreen = () => (
-  <View>
-    <Text>Details Screen</Text>
-  </View>
-);
-
 const Headermenu = () => {
   return (
     <Button
@@ -75,29 +71,4 @@ const Headermenu = () => {
   );
 };
 
-const home_Style = StyleSheet.create({
-  header: {
-    backgroundColor: COLORS.blue,
-  },
-  tabBar: {
-    flexDirection: 'row',
-    borderTopColor: '#333333',
-    borderTopWidth: 1,
-  },
-  tab: {
-    height: 50,
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  tabStatus: {
-    height: 50,
-    flex: 1,
-    marginLeft: 20,
-    justifyContent: 'center',
-  },
-  stack: {
 
-  },
-  container: {}
-});

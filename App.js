@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Button, FlatList } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { COLORS } from './style/color';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -9,9 +9,12 @@ import { home_Style } from './style/HomeStyle.js';
 
 const Stack = createStackNavigator();
 
+const navTheme = DefaultTheme;
+navTheme.colors.background = COLORS.orange;
+
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navTheme}>
       <Stack.Navigator screenOptions={{ headerStyle: home_Style.header, headerTitleStyle: { color: COLORS.white, headerRight: () => <Headermenu />, },headerTintColor: COLORS.white }}>
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Impfpass Hauptseite", }} />
         <Stack.Screen name="Details" component={DetailsScreen} />
@@ -47,13 +50,13 @@ const HomeScreen = ({ navigation }) => (
           renderItem={({ item }) =>
             <View style={home_Style.tabBar}>
               <View style={home_Style.tabStatus}>
-                <Icon name={item.aktiv} size={30} color={item.color} />
+                <Icon name={item.aktiv} size={35} color={item.color} />
               </View>
               <View style={home_Style.tab} >
                 <Text style={{color:COLORS.orange}}>{item.key}</Text>
               </View>
               <View style={home_Style.tab} >
-                <Icon name='pending' size={30} color={COLORS.secondOrange} onPress={() => navigation.navigate(item.link)} />
+                <Icon name='pending' size={35} color={COLORS.orange} onPress={() => navigation.navigate(item.link)} />
               </View>
             </View>
           }

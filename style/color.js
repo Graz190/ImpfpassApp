@@ -7,5 +7,6 @@ export const COLORS = {
     black : "#000000",
     orange : "#FF7D29",
     secondOrange: "#FFBF78",
-    backgroundColor: "FEFFD2"
+    backgroundColor: "#FFEEA9",
+    backgroundColor2: "#FEFFD2"
 }

@@ -10,6 +10,7 @@ export const home_Style = StyleSheet.create({
       borderTopColor: '#333333',
       borderTopWidth: 1,
       borderColor: COLORS.white,
+      backgroundColor:COLORS.backgroundColor
     },
     tab: {
       height: 50,

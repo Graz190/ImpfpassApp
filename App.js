@@ -42,7 +42,7 @@ const HomeScreen = ({ navigation }) => (
           ]}
           renderItem={({ item }) =>
             <View style={home_Style.tabBar}>
-              <View style={home_Style.tabBar}>
+              <View style={home_Style.tabStatus}>
                 <Icon name={item.aktiv} size={30} color={item.color} />
               </View>
               <View style={home_Style.tab}>
@@ -88,6 +88,12 @@ const home_Style = StyleSheet.create({
     height: 50,
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
+  },
+  tabStatus: {
+    height: 50,
+    flex: 1,
+    marginLeft: 20,
     justifyContent: 'center',
   },
   stack: {
